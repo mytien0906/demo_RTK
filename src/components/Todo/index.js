@@ -2,12 +2,12 @@ import { Row, Tag, Checkbox } from 'antd';
 import { useState } from 'react';
 
 const priorityColorMapping = {
-  High: 'red',
-  Medium: 'blue',
-  Low: 'gray',
+  High: 'success',
+  Medium: 'processing',
+  Low: 'default',
 };
 
-export default function Todo({ name, prioriry }) {
+export default function Todo({ name, priority }) {
   const [checked, setChecked] = useState(false);
 
   const toggleCheckbox = () => {
@@ -25,8 +25,8 @@ export default function Todo({ name, prioriry }) {
       <Checkbox checked={checked} onChange={toggleCheckbox}>
         {name}
       </Checkbox>
-      <Tag color={priorityColorMapping[prioriry]} style={{ margin: 0 }}>
-        {prioriry}
+      <Tag color={priorityColorMapping[priority]} style={{ margin: 0 }}>
+        {priority}
       </Tag>
     </Row>
   );
